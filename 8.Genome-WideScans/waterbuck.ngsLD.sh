@@ -21,12 +21,12 @@ thetaStat=/home/users/xi/software/angsd/misc/thetaStat
 ngsLD=/home/users/xi/software/ngsLD/ngsLD
 
 while read file ; do
-#$angsd -bam $input/$name.Goat.list -ref $Goat_fasta -out $name.GoatRef.$file -r $file -sites $Goat_sites_filtering  \
-#        	-minMapQ 30 -minQ 20 -doCounts 1 \
-#        	-GL 2 -doMajorMinor 1 -doMaf 1 -skipTriallelic 1 \
-#        	-doGlf 4 -SNP_pval 1e-6 -nThreads 30
+$angsd -bam $input/$name.Goat.list -ref $Goat_fasta -out $name.GoatRef.$file -r $file -sites $Goat_sites_filtering  \
+        	-minMapQ 30 -minQ 20 -doCounts 1 \
+        	-GL 2 -doMajorMinor 1 -doMaf 1 -skipTriallelic 1 \
+        	-doGlf 4 -SNP_pval 1e-6 -nThreads 30
 
-#zless $name.GoatRef.$file.mafs.gz | cut -f1,2 > $name.GoatRef.$file.mafs.pos ####get pos file
+zless $name.GoatRef.$file.mafs.gz | cut -f1,2 > $name.GoatRef.$file.mafs.pos ####get pos file
 NSITES=`zcat $name.GoatRef.$file.mafs.gz | tail -n+2 | wc -l` ### how to calculate the number of sites
 $ngsLD --geno $name.GoatRef.$file.glf.gz --min_maf 0.05 \
        --posH $name.GoatRef.$file.mafs.pos --extend_out --log_scale T --n_threads 30 --n_ind $n_ind --n_sites $NSITES --rnd_sample $rnd_sample \
