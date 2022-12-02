@@ -1,0 +1,8 @@
+bams: /home/users/xi/Waterbuck_project/5.genotype_likelihood/*
+outmain: "results"
+chroms: /home/users/xi/Waterbuck_project/5.genotype_likelihood/*
+regions: /home/users/xi/Waterbuck_project/5.genotype_likelihood/*
+params:
+ angsd:
+  minQ: 20
+  minMapQ: 30
