@@ -1,0 +1,17 @@
+info: /home/users/xi/Waterbuck_project/4.sites_filtering/3.excess_het/no_outgroup_crashed_duplicate_within_samples_Waterbuck.pops_bamFullPath.txt
+outmain: "results"
+scriptsdir: "scripts"
+chroms: /home/users/xi/Waterbuck_project/4.sites_filtering/3.excess_het/DefassaWaterbuck.Ref.scaffolds.list
+ref: /home/users/xi/Waterbuck_project/Reference/DefassaWaterbuck.fasta
+all_bed: /home/users/xi/Waterbuck_project/4.sites_filtering/3.excess_het/all.bed
+genome_sizes: /home/users/xi/Waterbuck_project/4.sites_filtering/3.excess_het/genome_sizes.file
+params:
+ angsd:
+  minQ: 30
+  minMapQ: 25
+ pcangsd:
+  e: 0
+ filter:
+  minF: -0.9
+  w: 10000
+  lrt: 24
