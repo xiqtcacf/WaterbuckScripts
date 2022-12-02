@@ -1,9 +1,0 @@
-groups:
-  bams: /home/users/xi/Waterbuck_project/4.sites_filtering/4.depth/no_outgroup_crashed_duplicate_within_samples_Waterbuck.raw_bam_full_path.txt
-outmain: results
-chroms: /home/users/xi/Waterbuck_project/4.sites_filtering/4.depth/DefassaWaterbuck.Ref.scaffolds.list
-angsdparams:
-  maxdepth: 5000
-  minQ: 30
-  minMapQ: 25
-allbed: /home/users/xi/Waterbuck_project/4.sites_filtering/4.depth/DefassaWaterbuck.Ref.scaffolds.all.bed
