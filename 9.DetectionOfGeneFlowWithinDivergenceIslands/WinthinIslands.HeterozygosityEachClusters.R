@@ -1,0 +1,62 @@
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(gridBase)
+library(ggdendro)
+library(lattice)
+library(ape)
+library('dendextend')
+library(ggrepel)
+
+#### 108 samples for heter
+##step1 get list of samples based on PC1 class1, class2, class3, class4, class5: 5bins, by hand..... Chr25 as an example
+setwd('/home/xi/Desktop/Fst_NJtree_PCAngsd_Heter/PCAngsd')
+info_all <- read.table("info.all", header = T)
+ID <- read.table("108.ID.txt", header= T)
+ID$id  <- 1:nrow(ID)
+info_noOrder <- merge (ID, info_all , by='ID')
+pop <- info_noOrder[order(info_noOrder$id), ] ####keep order with ID
+mat <- as.matrix(read.table("chr25.1.Pcangsd.e9.cov", header = F)) ###matrix
+e <- eigen(mat)
+all <- cbind(e$vectors[,1], pop )
+head(d<-e$vectors[,1])
+tab <-table(cut(d,5),pop$species)
+coll <- c("common" = "#BEBADA","defassa" = "#FDB462")
+tab <-tab[,names(coll)]
+class1 <- subset(all, all$`e$vectors[, 1]` > -0.136 & all$`e$vectors[, 1]` <= -0.092 )
+class2 <- subset(all, all$`e$vectors[, 1]` > -0.092 & all$`e$vectors[, 1]` <= -0.0477 )
+class3 <- subset(all, all$`e$vectors[, 1]` > -0.0477 & all$`e$vectors[, 1]` <= -0.00342 )
+class4 <- subset(all, all$`e$vectors[, 1]` > -0.00342 & all$`e$vectors[, 1]` <= 0.0408 )
+class5 <- subset(all, all$`e$vectors[, 1]` > 0.0408 & all$`e$vectors[, 1]` <= 0.0853 )
+write.table(class1, "5class_list/chr25.2.class1.txt", sep="\t", quote=FALSE, col.names = T, row.names = FALSE)
+write.table(class2, "5class_list/chr25.2.class2.txt", sep="\t", quote=FALSE, col.names = T, row.names = FALSE)
+write.table(class3, "5class_list/chr25.2.class3.txt", sep="\t", quote=FALSE, col.names = T, row.names = FALSE)
+write.table(class4, "5class_list/chr25.2.class4.txt", sep="\t", quote=FALSE, col.names = T, row.names = FALSE)
+write.table(class5, "5class_list/chr25.2.class5.txt", sep="\t", quote=FALSE, col.names = T, row.names = FALSE)
+##step2 box plot per region, hete
+library('writexl') 
+setwd('/home/xi/Desktop/Fst_NJtree_PCAngsd_Heter/hete')
+hete <- read.table('chr25.2.hete',header = T)
+class_1 <- read.table('chr25.2.class1.txt',header = T)
+class_2 <- read.table('chr25.2.class2.txt',header = T)
+class_3 <- read.table('chr25.2.class3.txt',header = T)
+class_4 <- read.table('chr25.2.class4.txt',header = T)
+class_5 <- read.table('chr25.2.class5.txt',header = T)
+class1 <- merge(hete, class_1, by='ID')
+class2 <- merge(hete, class_2, by='ID')
+class3 <- merge(hete, class_3, by='ID')
+class4 <- merge(hete, class_4, by='ID')
+class5 <- merge(hete, class_5, by='ID')
+class1$hete <- class1$sfs2c /(class1$sfs1c + class1$sfs2c + class1$sfs3c)
+class2$hete <- class2$sfs2c /(class2$sfs1c + class2$sfs2c + class2$sfs3c)
+class3$hete <- class3$sfs2c /(class3$sfs1c + class3$sfs2c + class3$sfs3c)
+class4$hete <- class4$sfs2c /(class4$sfs1c + class4$sfs2c + class4$sfs3c)
+class5$hete <- class5$sfs2c /(class5$sfs1c + class5$sfs2c + class5$sfs3c)
+
+png(filename = "png/chr25.2.hete.Fst.png", width = 800,height=800,)
+boxplot(class1$hete, class2$hete, class3$hete, class4$hete, class5$hete,
+        names=c("bin1", "bin2", "bin3","bin4","bin5"),
+        col=c ("grey"),
+        ylim=c(0,0.008))
+title("Chr25.2:heterozygosity for 5 bins based on PC1 in PCAngsd")
+dev.off()
