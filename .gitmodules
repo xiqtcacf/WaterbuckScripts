@@ -1,0 +1,3 @@
+[submodule "1.Mapping/install/paleomix"]
+	path = 1.Mapping/install/paleomix
+	url = https://github.com/MikkelSchubert/paleomix
