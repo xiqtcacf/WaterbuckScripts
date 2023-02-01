@@ -16,7 +16,7 @@ samtools=/home/users/xi/software/samtools-1.14/samtools
 $samtools merge $batch1.$batch4.bam $input/$batch2.$batch4.bam  $input/$batch3.$batch4.bam -@ 20
 
 ###### rename and index
-$samtools reheader --command 'sed "s/\tSM:[0-9].../\tSM:javanicus_1607_1608/g"' $batch1.$batch4.bam > $batch1.$batch4.Reheader.bam
+$samtools reheader --command 'sed "s/\tSM:[0-9].../\tSM:Matetsi_1614_1614_1/g"' $batch1.$batch4.bam > $batch1.$batch4.Reheader.bam
 $samtools index $output/$batch1.$batch4.Reheader.bam  
 
 ###### checking depth of merged samples
