@@ -19,7 +19,6 @@ sites_filtering=/home/users/xi/Waterbuck_project/5.genotype_likelihood/Goat.29Ch
 Common_bam=/home/users/xi/Waterbuck_project/0_add_Dxy/pop_chr_info/dxy.Common.list
 Defassa_bam=/home/users/xi/Waterbuck_project/0_add_Dxy/pop_chr_info/dxy.Defassa.list
 
-
 #### step1 get window size bed for each chromosome and change format from bed to angsd input '-r chr2:135000000-140000000'
 $BEDTOOLS makewindows -g Goat.fasta.chr29.txt -w 100000 > 100Kwindow.Goat.fasta.chr29.bed ###sutosome
 awk '{print $1":"$2"-"$3}' 100Kwindow.Goat.fasta.chr29.bed > rFormat.100Kwindow.Goat.fasta.chr29.bed
