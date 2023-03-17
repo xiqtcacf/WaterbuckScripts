@@ -21,10 +21,10 @@ Defassa_bam=/home/users/xi/Waterbuck_project/0_add_Dxy/pop_chr_info/dxy.Defassa.
 
 
 #### step1 get window size bed for each chromosome and change format from bed to angsd input '-r chr2:135000000-140000000'
-#$BEDTOOLS makewindows -g Goat.fasta.chr29.txt -w 100000 > 100Kwindow.Goat.fasta.chr29.bed ###sutosome
-#awk '{print $1":"$2"-"$3}' 100Kwindow.Goat.fasta.chr29.bed > rFormat.100Kwindow.Goat.fasta.chr29.bed
-#$BEDTOOLS makewindows -g Goat.fasta.chrSex.txt -w 100000 > 100Kwindow.Goat.fasta.chrSex.bed ####sex chromosome
-#awk '{print $1":"$2"-"$3}' 100Kwindow.Goat.fasta.chrSex.bed > rFormat.100Kwindow.Goat.fasta.chrSex.bed
+$BEDTOOLS makewindows -g Goat.fasta.chr29.txt -w 100000 > 100Kwindow.Goat.fasta.chr29.bed ###sutosome
+awk '{print $1":"$2"-"$3}' 100Kwindow.Goat.fasta.chr29.bed > rFormat.100Kwindow.Goat.fasta.chr29.bed
+$BEDTOOLS makewindows -g Goat.fasta.chrSex.txt -w 100000 > 100Kwindow.Goat.fasta.chrSex.bed ####sex chromosome
+awk '{print $1":"$2"-"$3}' 100Kwindow.Goat.fasta.chrSex.bed > rFormat.100Kwindow.Goat.fasta.chrSex.bed
 
 #### step2 using angsd to calculate saf per subspecies per window
 while read window_bed; do
@@ -34,6 +34,7 @@ while read window_bed; do
       rm Common.$window_bed.saf.*
       rm Defassa.$window_bed.saf.*
       rm *.arg
+
 #### step3 calculate dxy per window
       python3 asfsp.py -I Common.Defassa.$window_bed.2dsfs -D 82,134 --calc dxy > $window_bed.dxy
       mv Common.Defassa.$window_bed.2dsfs ../dxy_allAutoChr/$chr
@@ -44,7 +45,7 @@ while read window_bed; do
       rm $window_bed.dxy
 done < ../pop_chr_info/$r_chr_bed
 
-#### combine them all together
+#### step 4 combine them all together
 awk 'FNR == 3' $output/*.dxy.new > $output/$chr.100kWindow.waterbuck.dxy
 sed 's/Pairwise neuclotide difference is:  //g' $output/$chr.100kWindow.waterbuck.dxy -i
 cp $output/$chr.100kWindow.waterbuck.dxy ../
