@@ -13,7 +13,9 @@ statistics from MultipleQC;
 
 exteremely high heterozygosity,
 
-error rates.
+error rates
+
+relateness between pairwise samples.
 
 
 ### 3.Sites filtering
