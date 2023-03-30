@@ -6,7 +6,7 @@ A pipeline designed for mapping and post-mapping filtering of waterbuck.
 
 ### 2.Sample filtering 
 A pipeline designed to remove problematic samples prior to downstream analyses, based on
-*mapping statistics;
+####mapping statistics;
 -statistics from MultipleQC;
 -exteremely high heterozygosity,
 -error rates,
