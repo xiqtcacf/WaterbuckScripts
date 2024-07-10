@@ -1,3 +1,4 @@
+# Get origional script from Cindy G. Santander and modify parts 
 # YOU NEED TO INCLUDE REFERENCE & SITES PATHS
 # You need a bam list file with path to each bam file
 # TWISST GROUP NAMES ARE HARD-CODED
@@ -36,7 +37,6 @@ do
 done
 
 # CLEAN UP FILES RELATED TO WINDOWS WHERE NO NJ TREE WAS PRODUCED; FOR PLOTTING PURPOSES.
-
 #paste regions_${win}k_${contig}.txt <(grep "filtering" something_${contig}.out | cut -d ":" -f2 | sed 's/ //g') > regions_withNumSites_${win}k_${contig}.txt
 #grep -B7 "Error" something_${contig}.out | grep "temp" | cut -d/ -f2 | cut -d. -f1 |cut -d: -f2 > ${contig}_errors.txt
 #grep -w -v -f ${contig}_errors.txt regions_withNumSites_${win}k_${contig}.txt | sed -e 's/:/\t/g' -e 's/-/\t/g' - > clean_regions_withNumSites_${win}k_${contig}.txt
