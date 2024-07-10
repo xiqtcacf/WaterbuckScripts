@@ -10,11 +10,13 @@ mapping statistics;
 
 statistics from MultipleQC;
 
-exteremely high heterozygosity,
+exteremely high heterozygosity;
 
-error rates
+error rates;
 
-relateness between pairwise samples.
+relateness between pairwise samples: King calculated from global 2D-sfs;
+
+relateness within each location by NgsRelate.
 
 
 ### 3.Sites filtering
@@ -28,7 +30,7 @@ sites excess heterozygosity after mapping.
 
 
 ### 4.Genotypelikehood calculation
-Script to calculate genotype likelihood
+Script to calculate genotype likelihood.
 
 ### 5.Population structure and recently admixture
 5.1.Script to infer Principal component analysis using PCAngsd;
@@ -55,9 +57,11 @@ Script to calculate genotype likelihood
 
 7.3.Script to run EEMS;
 
-7.4.Script to estimate divergence time and their 95%CI range between two-subspecies using Fastsimcoal27;
+7.4.Script to estimate divergence time between two-subspecies using Fastsimcoal27;
 
-7.5.Script to estimate divergence time using the Two-Two (TT) method.
+7.5.Script to estimate divergence time's 95%CI range between two-subspecies using Fastsimcoal27;
+
+7.6.Script to estimate divergence time using the Two-Two (TT) method.
 
 
 ### 8.Genome-wide scans
