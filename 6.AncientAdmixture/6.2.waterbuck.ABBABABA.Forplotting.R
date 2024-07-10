@@ -1,11 +1,13 @@
+#example for plotting ABBABABA including 11 recently admixed samples, ABBABABA excluding recently admixed samples same but different input files.
+
 ########get the right format of abbababa results
 setwd('/home/xi/Desktop/SysBio-waterbuck-Revision1-August-2023/revised_analyses/ABBABABA_11admixS')
-df.1 <- read.table("8outgroup_crashed_duplicate_within_samples_Waterbuck.species.pops.txt",header=T)
-df.2 <- read.table("H1",header=T)
-df.2$id  <- 1:nrow(df.2)
-out  <- merge(df.2,df.1, by = "Inds")
-out1 <- out[order(out$id), ]
-write.table(out1, "H1.pops.species", sep="\t", quote=FALSE, col.names = T, row.names = FALSE)
+#df.1 <- read.table("8outgroup_crashed_duplicate_within_samples_Waterbuck.species.pops.txt",header=T)
+#df.2 <- read.table("H1",header=T)
+#df.2$id  <- 1:nrow(df.2)
+#out  <- merge(df.2,df.1, by = "Inds")
+#out1 <- out[order(out$id), ]
+#write.table(out1, "H1.pops.species", sep="\t", quote=FALSE, col.names = T, row.names = FALSE)
 
 ###ccd
 library(ggplot2)
@@ -17,13 +19,11 @@ Bohor_reedbuck$p <- 2*pnorm(-abs(Bohor_reedbuck$Z))
 Bohor_reedbuck$bonferroni_p =
   p.adjust(Bohor_reedbuck$p,
            method = "bonferroni")
-
 tt <- Bohor_reedbuck %>% group_by(H1_Pops.H2_Pops.H3_Pops)
 highlight_tt1 <- Bohor_reedbuck %>% 
   filter(Bohor_reedbuck$bonferroni_p < 0.05 )
 tt1 <- highlight_tt1 %>% group_by(H1_Pops.H2_Pops.H3_Pops)
 tt2 <- Bohor_reedbuck_adm %>% group_by(H1_Pops.H2_Pops.H3_Pops)
-
 p <- 
   ggplot(Bohor_reedbuck,aes(y=reorder(H1_Pops.H2_Pops.H3_Pops,Dstat),x=Dstat)) +
   geom_boxplot(width = 0.4, colour="black")  + 
@@ -55,13 +55,11 @@ Bohor_reedbuck$p <- 2*pnorm(-abs(Bohor_reedbuck$Z))
 Bohor_reedbuck$bonferroni_p =
   p.adjust(Bohor_reedbuck$p,
            method = "bonferroni")
-
 tt <- Bohor_reedbuck %>% group_by(H1_Pops.H2_Pops.H3_Pops)
 highlight_tt1 <- Bohor_reedbuck %>% 
   filter(Bohor_reedbuck$bonferroni_p < 0.05 )
 tt1 <- highlight_tt1 %>% group_by(H1_Pops.H2_Pops.H3_Pops)
 tt2 <- Bohor_reedbuck_adm %>% group_by(H1_Pops.H2_Pops.H3_Pops)
-
 p1 <- 
   ggplot(Bohor_reedbuck,aes(y=reorder(H1_Pops.H2_Pops.H3_Pops,Dstat),x=Dstat)) +
   geom_boxplot(width = 0.4, colour="black")  + 
@@ -85,7 +83,3 @@ p1 <-
 
 ggsave("revised.Highlighting11Admix.Goat.Defassa-Defassa-Common-BohorReedbuck.pdf", p1, height = 10, width = 10)
 ggsave("revised.Highlighting11Admix.Goat.Defassa-Defassa-Common-BohorReedbuck.png", p1, height = 10, width = 10)
-
-
-
-
