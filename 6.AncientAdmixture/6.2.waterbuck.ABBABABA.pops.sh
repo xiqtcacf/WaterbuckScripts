@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file=$1
+file=$1  ###with ngsadmix(recently)indivdiuals and without
 export DIR=/home/users/xi/Waterbuck_project/10.Abbababa/10pops_108inds.8outgroups/Defassa
 cd $DIR
 
