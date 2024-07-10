@@ -13,7 +13,5 @@ sites_filtering=/home/users/xi/Waterbuck_project/5.genotype_likelihood/DefassaWa
 
 indname=/home/users/xi/Waterbuck_project/10.Abbababa/10pops_108inds.8outgroups/indNames.txt
 
-
 $angsd -GL 2 -out Defassa.$file -nThreads 20 -doAbbababa 1 -doCounts 1 -bam $file -minMapQ 30 -minQ 20 -sites $sites_filtering -blockSize 5000000  -useLast 1
 Rscript $jackKnife file=Defassa.$file.abbababa indNames=$indname outfile=Defassa.$file.abbababa boot=1
-
