@@ -31,43 +31,45 @@ sites excess heterozygosity after mapping.
 Script to calculate genotype likelihood
 
 ### 5.Population structure and recently admixture
-Script to infer PCA by PCAngsd;
+5.1.Script to infer Principal component analysis using PCAngsd;
 
-Script to infer and plot admixture by NGSadmix;
+5.2.Script to infer and plot admixture by NGSadmix;
 
-Script to use evalAdmix;
+5.3.Script to use evalAdmix;
 
-Script to generate NJ-tree.
+5.4.Script to evaluate cases of recent admixture;
+
+5.5.Script to generate NJ-tree.
 
 
 ### 6.Ancient Admixture
-Script to perform TREEMIX;
+6.1.Script to perform TREEMIX;
 
-Script to calculate ABBABABA tests by ANGSD;
+6.2.Script to calculate ABBABABA tests by ANGSD;
 
 
 ### 7.Divereisty and divergence
-Script to infer Heterozygosity;
+7.1.Script to infer Heterozygosity;
 
-Script to infer Pairwise global Fst between each pair of populations;
+7.2.Script to infer Pairwise global Fst between each pair of populations;
 
-Script to run EEMS;
+7.3.Script to run EEMS;
 
-Script to estimate divergence time and their 95%CI range between two-subspecies using Fastsimcoal27.
+7.4.Script to estimate divergence time and their 95%CI range between two-subspecies using Fastsimcoal27;
+
+7.5.Script to estimate divergence time using the Two-Two (TT) method.
 
 
 ### 8.Genome-wide scans
-Script to perform sliding window Fst;
+8.1.Script to perform sliding window Fst;
 
-Script to perform sliding window Dxy;
+8.2.Script to perform sliding window Dxy;
 
-Script to perform sliding window TWISST;
+8.3.Script to perform sliding window TWISST;
 
-Script to calculate sliding window neutralisty statistics;
+8.4.Script to calculate sliding window of nucleotide diversity and Tajima’s D;
 
-Script to infer linkage disequilibrium by ngsLD;
-
-Script to run EEMS;
+8.5.Script to infer linkage disequilibrium by ngsLD;
 
 
 ### 9.Detection of gene flow within differentiation islands
