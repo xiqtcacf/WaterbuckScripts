@@ -1,4 +1,4 @@
-source("/home/xi/Desktop/scripts/Postdoc-scripts/Waterbuck/visFuns.R")
+source("/home/xi/Desktop/scripts/Postdoc-scripts/Waterbuck/visFuns.R") ###origional 'visFuns.R' from Genis Garcia Erill  
 popall<-read.table("/home/xi/Desktop/NGSadmix.119inds/no_outgroup_crashed_duplicate_within_samples_Waterbuck.species.pops.txt",as.is=T, header=T)
 outdir <- "/home/xi/Desktop/NGSadmix.119inds/"
 waterbuckCols <- c ("Luangwa"="purple", "Matetsi"="red", "Nairobi"="dark green", "Samburu"="grey","Kafue"="dark blue","KVNP"="light blue","Maswa"="brown","QENP"="light green","Samole"="wheat", "Ugalla"="yellow")
