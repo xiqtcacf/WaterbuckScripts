@@ -4,7 +4,6 @@ r_chr_bed=$1
 chr=$2
 
 #####bash XiWaterbuck.sfs_perWindow_ForDxy.sh NC_030808.1.rFormat.100Kwindow.Goat.fasta.chr29.bed chr1
-
 export DIR=/home/users/xi/Waterbuck_project/0_add_Dxy/asfsp
 cd $DIR
 
