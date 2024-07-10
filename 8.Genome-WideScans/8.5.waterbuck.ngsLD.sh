@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #### bash waterbuck.poolingpops.angsd_ngsLD.sh common_bula_bula Common 41 0.01
-
 name=$1
 species=$2
 n_ind=$3
