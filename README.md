@@ -22,11 +22,17 @@ relateness within each location by NgsRelate.
 ### 3.Sites filtering
 A pipeline designed to avoid biases from low-quality mapping, based on 
 
-detection of problematic regions of the reference genomes (mappability, repeats and sex-linked chromosomes or scaffolds);
+3.1.detection of problematic regions of the reference genomes:
 
-sites that showed unusual depth; 
+3.1.1.mappability;
 
-sites excess heterozygosity after mapping. 
+3.1.2.repeats;
+
+3.1.3.sex-linked chromosomes or scaffolds;
+
+3.2.sites that showed unusual depth; 
+
+3.3.sites excess heterozygosity after mapping. 
 
 
 ### 4.Genotypelikehood calculation
@@ -61,7 +67,9 @@ Script to calculate genotype likelihood.
 
 7.5.Script to estimate divergence time's 95%CI range between two-subspecies using Fastsimcoal27;
 
-7.6.Script to estimate divergence time using the Two-Two (TT) method.
+7.6.All three demographic model design for estimating diveregence time by Fastsimcoal27;
+
+7.7.Script to estimate divergence time using the Two-Two (TT) method.
 
 
 ### 8.Genome-wide scans
