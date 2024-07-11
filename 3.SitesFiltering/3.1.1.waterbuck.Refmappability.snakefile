@@ -1,4 +1,4 @@
-# snakemake to do mappability in reference genome.
+# snakemake to do mappability in reference genome; originally from Genís Garcia-Erill
 # config requries:
 # ref: path to reference to do mappability on
 # outmain: folder to write results to
@@ -33,9 +33,6 @@ rule index_ref:
     {GENMAP} index -F {input.ref} -I {params.index} -A skew
     touch {output.done}
 """
-    
-
-
 
 rule mappability:
     input:
@@ -50,9 +47,7 @@ rule mappability:
     threads: 10
     shell:
         "{GENMAP} map -K {params.k} -E {params.e} -I {params.index} -O {params.outprefix} --bedgraph -T {threads}"
-
-        
-            
+  
 rule make_bed:
     input:
         rules.mappability.output.bedgraph,
