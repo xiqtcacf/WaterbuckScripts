@@ -1,0 +1,26 @@
+// Search ranges and rules file
+// ****************************
+
+[PARAMETERS]
+//#isInt? #name   #dist.#min  #max
+//all Ns are in number of diploid individuals
+1  NPOPC	unif	1000	200000   output bounded
+1  NPOPD	unif	1000	200000   output bounded
+1  NANC		unif	1000	200000   output bounded
+1  NPOPNC       unif    1000    200000   output bounded
+1  NPOPND       unif    1000    200000   output bounded
+
+1  TMSTOP	logunif 1000	1000000	output
+1  TADD		logunif 1000    1000000 hide
+
+0  mDC          logunif 1e-7    1e-2    output
+0  mCD          logunif 1e-7    1e-2    output
+
+[RULES]
+
+[COMPLEX PARAMETERS]
+0  RES1 = NANC/NPOPND     hide
+0  RES2 = NPOPND/NPOPD    hide
+0  RES3 = NPOPNC/NPOPC    hide
+
+1  TDIV  = TMSTOP+TADD   output
