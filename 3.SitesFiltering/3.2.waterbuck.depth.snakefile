@@ -1,5 +1,4 @@
-# snakemake to do depth filters: from group/s of bam files generates bed files with list of regions to keep after excluding regions with very low or very high local depth
-
+# snakemake to do depth filters,originally from Genís Garcia-Erill: from group/s of bam files generates bed files with list of regions to keep after excluding regions with very low or very high local depth
 
 # config needs:
 # groups: group: bamlist (dict where keys are groups (e.g. lowdepth/highdepth) and values list of samples corresponding to that group.
@@ -30,8 +29,7 @@ rule all:
     input:
         os.path.join(OUTMAIN, "plots", "depthFilter.png"),
         expand(os.path.join(OUTMAIN, "bed", "all_{w}.bed"), w = ["keep", "remove"])
-
-        
+ 
 rule do_depths:
     input:
         bamlist = lambda wildcards: config["groups"][wildcards.group]
@@ -47,8 +45,6 @@ rule do_depths:
     log: os.path.join(OUTMAIN, "depths","{group}", "{chrr}_{group}.arg"),
     shell: "{ANGSD} -doCounts 1 -doDepth 1 -dumpCounts 1 -maxdepth {params.maxdepth} -minQ {params.minQ} -minMapQ {params.minMapQ} -r '{params.r}' -bam {input.bamlist} -out '{params.outprefix}'"
 
-
-
 rule combine_depths:
     input:
         global_depths = expand(os.path.join(OUTMAIN, "depths", "{{group}}", "{chrr}_{{group}}.depthGlobal"), chrr=CHROMS)
@@ -62,7 +58,6 @@ rule combine_depths:
         outmain = OUTMAIN
     shell: "{R} {COMBINE} {params.group} {params.chroms} {params.maxdepth} {params.outmain}"
 
-
 rule plot_depths:
     input:
         dists = expand(os.path.join(OUTMAIN, "depths", "all_{group}.depthGlobal"), group = config["groups"].keys()),
@@ -73,7 +68,6 @@ rule plot_depths:
         outmain = OUTMAIN,
         groups = " ".join([x for x in config["groups"].keys()])
     shell: "{R} {PLOT} {params.outmain} {params.groups}"
-
            
 rule do_filter:
     input:
@@ -88,7 +82,6 @@ rule do_filter:
         indir = os.path.join(OUTMAIN, "depths", "{group}"),
         outprefix = os.path.join(OUTMAIN, "bed", "{group}_remove")
     shell: "{PYTHON} {FILTER} {params.indir} {input.median} {params.chroms} {params.outprefix}"
-
 
 rule combine_beds:
     input:
