@@ -7,20 +7,16 @@ sex_linked=/home/users/xi/Waterbuck_project/4.sites_filtering/6.all_together_two
 autosome=/home/users/xi/Waterbuck_project/4.sites_filtering/6.all_together_twoREF/$batch/nosexLinkedAndAbnormalScaff.bed
 autosome_list=/home/users/xi/Waterbuck_project/4.sites_filtering/6.all_together_twoREF/$batch/nosexLinkedAndAbnormalScaff.list
 
-#grep -vf $sex_linked $all | grep -v "mito" > $autosome
 grep -vf $sex_linked $all > $autosome
-#cut -f1 $autosome > $autosome_list
 cut -f1 $autosome > $autosome_list
 
 BEDTOOLS=/home/genis/software/bedtools2/bin/bedtools
 outdir=/home/users/xi/Waterbuck_project/4.sites_filtering/6.all_together_twoREF/$batch
 
-
 rep=$outdir/Ref.Nonrepeat.bed
 map=$outdir/Ref.mappability_m1_k150_e2.bed
 dep=$outdir/Depth.all_keep.bed
 het=$outdir/Excess_heter.good.bed
-
 
 $BEDTOOLS intersect -a $autosome -b $rep > $outdir/nosexLinkedAndAbnormalScaff_rep.bed 
 $BEDTOOLS intersect -a $outdir/nosexLinkedAndAbnormalScaff_rep.bed -b $het > $outdir/nosexLinkedAndAbnormalScaff_rep_het.bed
