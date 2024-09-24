@@ -1,5 +1,6 @@
 # Scripts for 
-## Wang, X., Pedersen, C. E. T., Athanasiadis, G., Garcia-Erill, G., Hanghøj, K., Bertola, L. D., ... & Heller, R. (2022). Persistent gene flow suggests an absence of reproductive isolation in an African antelope speciation model. bioRxiv, 2022-12. https://www.biorxiv.org/content/10.1101/2022.12.08.519574v1.abstract
+## Wang, X., Pedersen, C. E. T., Athanasiadis, G., Garcia-Erill, G., Hanghøj, K., Bertola, L. D., ... & Heller, R. (2024). Persistent gene flow suggests an absence of reproductive isolation in an African antelope speciation model. Systematic Biology, syae037 https://academic.oup.com/sysbio/advance-article/doi/10.1093/sysbio/syae037/7733487
+
 ### 1.Mapping
 A pipeline designed for mapping and post-mapping filtering of waterbuck.
 
